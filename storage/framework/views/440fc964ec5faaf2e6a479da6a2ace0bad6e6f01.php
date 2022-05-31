@@ -1,0 +1,1 @@
+<?php /**PATH D:\kopdig\Kopdig-BE\resources\views/pages/market/transaction.blade.php ENDPATH**/ ?>
