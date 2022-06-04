@@ -64,17 +64,9 @@
                 </li>
                 <!-- End Koperasi Menu -->
 
-                <!-- Surat Menu -->
-                <li class="nav-item">
-                    <a class="nav-link menu-link"  href="landing">
-                        <i class="ri-dropbox-fill"></i> <span data-key="t-landing">Persetujuan</span>
-                    </a>
-                </li>
-                <!-- End Surat Menu -->
-
                  <!-- Laporan Menu -->
                  <li class="nav-item">
-                    <a class="nav-link menu-link"  href="landing">
+                    <a class="nav-link menu-link"  href="javascript:void(0)">
                         <i class="ri-settings-3-line"></i> <span data-key="t-landing">Pengaturan</span>
                     </a>
                 </li>
