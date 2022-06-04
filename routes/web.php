@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SimpanPinjamController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,16 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
+
+    // Simpan Pinjam
+    Route::controller(SimpanPinjamController::class)
+            ->prefix('simpan-pinjam')
+            ->name('simpan-pinjam.')->group(function(){
+
+        Route::get('/all', 'index')->name('index');
+        Route::get('/get/{id}', 'show')->name('show');
+    });
+
 });
 
 // Route::get('/dashboard', function () {

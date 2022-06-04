@@ -50,12 +50,12 @@
                     <div class="collapse menu-dropdown" id="sidebarSimpanPinjam">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="#sidebarSignUp" class="nav-link" role="button"
+                                <a href="<?php echo e(route('simpan-pinjam.index')); ?>" class="nav-link" role="button"
                                     aria-expanded="false" aria-controls="sidebarSignUp" >Semua Data
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#sidebarSignUp" class="nav-link" role="button"
+                                <a href="#" class="nav-link" role="button"
                                     aria-expanded="false" aria-controls="sidebarSignUp" >Pengecekan Tenor
                                 </a>
                             </li>

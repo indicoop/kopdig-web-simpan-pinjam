@@ -1,5 +1,5 @@
 <!-- Layout config Js -->
-<script src="<?php echo e(URL::asset('assets/js/layout.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('assets/js/layout.min.js')); ?>"></script>
 <!-- Bootstrap Css -->
 <link href="<?php echo e(URL::asset('assets/css/bootstrap.min.css')); ?>" id="bootstrap-style" rel="stylesheet" type="text/css" />
 <!-- Icons Css -->
