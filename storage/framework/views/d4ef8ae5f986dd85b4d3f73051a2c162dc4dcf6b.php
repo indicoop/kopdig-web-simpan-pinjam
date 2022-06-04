@@ -1,17 +1,15 @@
-@extends('layouts.simpanpinjam.app', ['title' => 'Detail Koperasi Simpan Pinjam'])
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header d-flex justify-content-beetwen">
-                <h4 class="card-title mb-0 flex-grow-1">Detail Koperasi Simpan Pinjam {{ $cooperativeId->name }}</h4>
+                <h4 class="card-title mb-0 flex-grow-1">Detail Koperasi Simpan Pinjam <?php echo e($cooperativeId->name); ?></h4>
                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
                     Pengajuan
                 </button>
 
-                {{-- Modal --}}
-                @include('pages.simpan-pinjam.common.modal-pengajuan')
+                
+                <?php echo $__env->make('pages.simpan-pinjam.common.modal-pengajuan', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             </div><!-- end card header -->
 
             <div class="card-body">
@@ -31,31 +29,31 @@
                     </ul>
                     <div class="tab-content text-muted">
                         <div class="tab-pane active" id="nav-border-justified-home" role="tabpanel">
-                            {{-- <h6>Give your text a good structure</h6> --}}
+                            
                             <p class="mb-0">
                                 <form action="">
                                     <div>
                                         <label for="labelInput" class="form-label">Nama Ketua</label>
-                                        <input type="text" value="{{ $cooperativeId->name}}" class="form-control" id="labelInput">
+                                        <input type="text" value="<?php echo e($cooperativeId->name); ?>" class="form-control" id="labelInput">
                                     </div>
                                     <div class="mt-3">
                                         <label for="basiInput" class="form-label">Alamat</label>
-                                        {{-- <input type="text" value="" class="form-control" id="basiInput"> --}}
-                                        <textarea name="" id="" cols="30" rows="10" class="form-control">{{ $cooperativeId->address}}</textarea>
+                                        
+                                        <textarea name="" id="" cols="30" rows="10" class="form-control"><?php echo e($cooperativeId->address); ?></textarea>
                                     </div>
                                     <div class="mt-3">
                                         <label for="basiInput" class="form-label">Jumlah Anggota</label>
-                                        <input type="text" readonly value="{{$countCooperative}}" class="form-control" id="basiInput">
+                                        <input type="text" readonly value="<?php echo e($countCooperative); ?>" class="form-control" id="basiInput">
                                     </div>
                                 </form>
                             </p>
                         </div>
                         <div class="tab-pane" id="nav-border-justified-profile" role="tabpanel">
-                            {{-- <h6>Statistik peminjaman</h6> --}}
+                            
                             <div id="area_chart_spline" data-colors='["--vz-primary", "--vz-success"]' class="apex-charts" dir="ltr"></div>
                         </div>
                     </div>
-                    {{-- /nav tabs --}}
+                    
 
                 </div>
             </div><!-- end card-body -->
@@ -63,9 +61,9 @@
     </div>
     <!-- end col -->
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@push('scripts')
+<?php $__env->startPush('scripts'); ?>
      <!-- apexcharts -->
      <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
      <!-- areacharts init -->
@@ -132,5 +130,7 @@
 var chart = new ApexCharts(document.querySelector("#area_chart_spline"), options);
 chart.render();
      </script>
-     {{-- <script src="{{ asset('assets/js/pages/apexcharts-area.init.js')}}"></script> --}}
-@endpush
+     
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('layouts.simpanpinjam.app', ['title' => 'Detail Koperasi Simpan Pinjam'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/destroylord/htdocs/kopdig-web-simpan-pinjam/resources/views/pages/simpan-pinjam/detail.blade.php ENDPATH**/ ?>

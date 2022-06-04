@@ -31,6 +31,9 @@ Route::group(['middleware' => 'auth'], function(){
         Route::get('/get/{id}', 'show')->name('show');
     });
 
+    // Profile
+    // Route::get('/profile)
+
 });
 
 // Route::get('/dashboard', function () {
