@@ -1,16 +1,16 @@
-@extends('layouts.simpanpinjam.app')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 <div class="profile-foreground position-relative mx-n4 mt-n4">
     <div class="profile-wid-bg">
-        <img src="{{ URL::asset('assets/images/profile-bg.jpg') }}" alt="" class="profile-wid-img" />
+        <img src="<?php echo e(URL::asset('assets/images/profile-bg.jpg')); ?>" alt="" class="profile-wid-img" />
     </div>
 </div>
 <div class="pt-4 mb-4 mb-lg-3 pb-lg-4">
     <div class="row g-4">
         <div class="col-auto">
             <div class="avatar-lg">
-                <img src="{{ URL::asset('assets/images/users/avatar-1.jpg') }}" alt="user-img"
+                <img src="<?php echo e(URL::asset('assets/images/users/avatar-1.jpg')); ?>" alt="user-img"
                     class="img-thumbnail rounded-circle" />
             </div>
         </div>
@@ -47,7 +47,7 @@
                     role="tablist">
                 </ul>
                 <div class="flex-shrink-0">
-                    <a href="{{route('profile.edit')}}" class="btn btn-success"><i
+                    <a href="<?php echo e(route('profile.edit')); ?>" class="btn btn-success"><i
                             class="ri-edit-box-line align-bottom"></i> Edit Profile Simpan Pinjam</a>
                 </div>
             </div>
@@ -147,4 +147,6 @@
     <!--end col-->
 </div>
 <!--end row-->
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.simpanpinjam.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\kopdig-web-simpan-pinjam\resources\views/auth/profile/index.blade.php ENDPATH**/ ?>

@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\SimpanPinjamController;
+use App\Http\Controllers\{SimpanPinjamController, ProfileController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,7 +34,8 @@ Route::group(['middleware' => 'auth'], function(){
     // 
 
     // Profile
-    // Route::get('/profile)
+     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+     Route::get('/edit-profile', [ProfileController::class, 'edit'])->name('profile.edit');
 
 });
 
