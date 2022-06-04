@@ -10,4 +10,8 @@ class ProfileController extends Controller
     {
         return view('auth.profile.index');
     }
+     public function edit()
+    {
+        return view('auth.profile.edit');
+    }
 }
