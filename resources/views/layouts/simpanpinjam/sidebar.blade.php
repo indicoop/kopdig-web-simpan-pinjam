@@ -42,7 +42,7 @@
                 <!-- End Dashboard Menu -->
 
                 <!-- Unit Usaha Menu -->
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link menu-link" href="{{ route('market.barang.index')}}">
                         <i class="ri-shopping-bag-3-line"></i> <span data-key="t-landing">Semua Barang</span>
                     </a>
@@ -76,7 +76,7 @@
                     <a class="nav-link menu-link" href="{{ route('market.transaction')}}">
                         <i class="ri-layout-3-line"></i> <span data-key="t-landing">Transaksi</span>
                     </a>
-                </li>
+                </li> --}}
                 <!-- End Unit Usaha Menu -->
 
                 <!-- Surat Menu -->

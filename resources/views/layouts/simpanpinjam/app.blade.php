@@ -9,28 +9,35 @@
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ URL::asset('assets/images/favicon.ico')}}">
-    @include('layouts.head-css')
+    @include('layouts.partials.head-css')
 </head>
 
 @section('body')
-    @include('layouts.body')
+<body>
 @show
     <!-- Begin page -->
     <div id="layout-wrapper">
-        @include('layouts.topbar')
-        @include('layouts.market.sidebar')
+        @include('layouts.components.navbar')
+        @include('layouts.components.sidebar')
         <!-- ============================================================== -->
         <!-- Start right Content here -->
         <!-- ============================================================== -->
         <div class="main-content">
             <div class="page-content">
                 <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                <h4 class="mb-sm-0">{{ $title ?? ''}}</h4>
+                            </div>
+                        </div>
+                    </div>
                     @yield('content')
                 </div>
                 <!-- container-fluid -->
             </div>
             <!-- End Page-content -->
-            @include('layouts.footer')
+            @include('layouts.components.footer')
         </div>
         <!-- end main content-->
     </div>
@@ -39,7 +46,7 @@
     {{-- @include('layouts.customizer') --}}
 
     <!-- JAVASCRIPT -->
-    @include('layouts.vendor-scripts')
+    @include('layouts.partials.vendor-scripts')
 </body>
 
 </html>
