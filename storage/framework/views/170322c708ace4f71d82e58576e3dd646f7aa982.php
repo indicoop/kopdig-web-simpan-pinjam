@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalgridLabel">Grid Modals</h5>
+                <h5 class="modal-title" id="exampleModalgridLabel">Pengajuan Pinjaman</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -10,13 +10,19 @@
                     <div class="row g-3">
                         <div class="col-xxl-6">
                             <div>
-                                <label for="firstName" class="form-label">First Name</label>
+                                <label for="firstName" class="form-label">Nama Ketua Koperasi:</label>
                                 <input type="text" class="form-control" id="firstName" placeholder="Enter firstname">
                             </div>
                         </div><!--end col-->
                         <div class="col-xxl-6">
                             <div>
-                                <label for="lastName" class="form-label">Last Name</label>
+                                <label for="lastName" class="form-label">Nama Koperasi Asal:</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="Enter lastname">
+                            </div>
+                        </div><!--end col-->
+                        <div class="col-xxl-6">
+                            <div>
+                                <label for="lastName" class="form-label">Alamat Koperasi Asal:</label>
                                 <input type="text" class="form-control" id="lastName" placeholder="Enter lastname">
                             </div>
                         </div><!--end col-->
