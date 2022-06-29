@@ -8,7 +8,7 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ URL::asset('assets/images/favicon.ico')}}">
+      <link rel="shortcut icon" type="image/x-icon" href="https://marketplace.kopdig.id/assets/img/logo-utama.png">
     @include('layouts.partials.head-css')
 </head>
 

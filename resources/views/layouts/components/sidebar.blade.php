@@ -5,7 +5,7 @@
         <!-- Dark Logo-->
         <a href="index" class="logo logo-dark">
             <span class="logo-sm">
-                <img src="{{ URL::asset('assets/images/logo-sm.png') }}" alt="" height="22">
+                <img src="https://marketplace.kopdig.id/assets/img/logo-utama.png" alt="" height="22">
             </span>
             <span class="logo-lg">
                 <img src="{{ URL::asset('assets/images/logo-header.png') }}" alt="" height="35">
@@ -14,7 +14,7 @@
         <!-- Light Logo-->
         <a href="index" class="logo logo-light">
             <span class="logo-sm">
-                <img src="{{ URL::asset('assets/images/logo-sm.png') }}" alt="" height="22">
+                <img src="" alt="" height="22">
             </span>
             <span class="logo-lg">
                 <img src="{{ URL::asset('assets/images/logo-light.png') }}" alt="" height="17">

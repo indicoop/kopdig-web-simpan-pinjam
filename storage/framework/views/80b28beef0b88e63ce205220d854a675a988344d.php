@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="utf-8" />
-    <title><?php echo $__env->yieldContent('title'); ?>| Simpan Pinjam </title>
+    <title>Kopdig.id | Simpan Pinjam - <?php echo e($title ?? 'Teho'); ?> </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="<?php echo e(URL::asset('assets/images/favicon.ico')); ?>">
+      <link rel="shortcut icon" type="image/x-icon" href="https://marketplace.kopdig.id/assets/img/logo-utama.png">
     <?php echo $__env->make('layouts.partials.head-css', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </head>
 

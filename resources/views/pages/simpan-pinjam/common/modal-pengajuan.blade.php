@@ -27,19 +27,15 @@
                             </div>
                         </div><!--end col-->
                         <div class="col-lg-12">
-                            <label class="form-label">Gender</label>
+                            <label class="form-label">Jenis Kelamin:</label>
                             <div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                    <label class="form-check-label" for="inlineRadio1">Male</label>
+                                    <label class="form-check-label" for="inlineRadio1">Laki - Laki</label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                    <label class="form-check-label" for="inlineRadio2">Female</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-                                    <label class="form-check-label" for="inlineRadio3">Others</label>
+                                    <label class="form-check-label" for="inlineRadio2">Perempuan</label>
                                 </div>
                             </div>
                         </div><!--end col-->
