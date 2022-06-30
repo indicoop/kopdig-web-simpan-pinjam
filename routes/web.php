@@ -28,7 +28,13 @@ Route::group(['middleware' => 'auth'], function(){
 
         Route::get('/all', 'index')->name('index');
         Route::get('/detail/{id}', 'show')->name('show');
+
+        Route::name('pinjaman.')->group(function(){
+            Route::get('/pinjaman', 'pinjaman')->name('index');
+            Route::get('/pinjaman/create', 'pinjamanCreate')->name('create');
+        });
     });
+
 
     //Tenor pengecekan
     Route::get('/cek-tenor-pinjaman', [TenorController::class, 'index'])->name('tenor.index');
@@ -36,6 +42,7 @@ Route::group(['middleware' => 'auth'], function(){
     // Profile
      Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
      Route::get('/edit-profile', [ProfileController::class, 'edit'])->name('profile.edit');
+     
 
 });
 

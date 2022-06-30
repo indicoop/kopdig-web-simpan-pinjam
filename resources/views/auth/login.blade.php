@@ -144,6 +144,7 @@
                                                         <input type="text"name="email" required autofocus class="form-control" id="email" placeholder="Masukkan Email Anda">
                                                     </div>
 
+                                                    
                                                     <div class="mb-3">
                                                         {{-- <div class="float-end">
                                                             <a href="auth-pass-reset-cover.html" class="text-muted">Forgot password?</a>

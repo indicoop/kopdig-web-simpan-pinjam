@@ -24,4 +24,15 @@ class SimpanPinjamController extends Controller
 
         return view('pages.simpan-pinjam.detail', compact('cooperativeId', 'countCooperative'));
     }
+    
+    public function pinjaman()
+    {
+        return view('pages.simpan-pinjam.pinjaman.index');
+    }
+
+    public function pinjamanCreate()
+    {
+        return view('pages.simpan-pinjam.pinjaman.create');
+    }
+
 }

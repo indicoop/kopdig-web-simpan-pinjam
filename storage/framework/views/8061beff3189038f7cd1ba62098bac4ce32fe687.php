@@ -86,9 +86,10 @@
 
                                                     <div class="mb-3">
                                                         <label for="email" class="form-label">Email</label>
-                                                        <input type="text"name="email" required autofocus class="form-control" id="email" placeholder="Masukkan email Anda">
+                                                        <input type="text"name="email" required autofocus class="form-control" id="email" placeholder="Masukkan Email Anda">
                                                     </div>
 
+                                                    
                                                     <div class="mb-3">
                                                         
                                                         <label class="form-label" for="password-input">Password</label>

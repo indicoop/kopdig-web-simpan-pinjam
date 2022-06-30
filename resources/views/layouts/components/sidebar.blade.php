@@ -59,6 +59,14 @@
                                     aria-expanded="false" aria-controls="sidebarSignUp" >Pengecekan Tenor
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link"  >List Simpanan
+                                </a>
+                            </li>
+                             <li class="nav-item">
+                                <a href="{{ route('simpan-pinjam.pinjaman.index') }}" class="nav-link"  >List Pinjaman
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>
