@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cooperative;
 use Illuminate\Http\Request;
-
-use function PHPUnit\Framework\returnValue;
+use App\Models\User;
 
 class SimpanPinjamController extends Controller
 {
@@ -20,11 +19,10 @@ class SimpanPinjamController extends Controller
         $cooperativeId = Cooperative::findOrFail($id);
         $countCooperative = Cooperative::where('form_of_cooperative', $cooperativeId->form_of_cooperative)
                             ->count();
-                            // dd($countCooperative);
 
         return view('pages.simpan-pinjam.detail', compact('cooperativeId', 'countCooperative'));
     }
-    
+
     public function pinjaman()
     {
         return view('pages.simpan-pinjam.pinjaman.index');
@@ -32,7 +30,9 @@ class SimpanPinjamController extends Controller
 
     public function pinjamanCreate()
     {
-        return view('pages.simpan-pinjam.pinjaman.create');
+        $users = User::where('role_id', 4)->get();
+        $cooperatives = Cooperative::where('form_of_cooperative', 'Koperasi Simpan Pinjam')->get();
+        return view('pages.simpan-pinjam.pinjaman.create', compact('users', 'cooperatives'));
     }
 
 }

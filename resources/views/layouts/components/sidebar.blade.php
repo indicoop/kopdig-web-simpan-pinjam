@@ -55,11 +55,6 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('tenor.index')}}" class="nav-link" role="button"
-                                    aria-expanded="false" aria-controls="sidebarSignUp" >Pengecekan Tenor
-                                </a>
-                            </li>
-                            <li class="nav-item">
                                 <a href="" class="nav-link"  >List Simpanan
                                 </a>
                             </li>

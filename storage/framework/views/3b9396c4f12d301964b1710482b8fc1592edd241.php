@@ -34,7 +34,7 @@
                 <!-- App Search-->
                 <form class="app-search d-none d-md-block">
                     <div class="position-relative">
-                        <input type="text" class="form-control" placeholder="Search..." autocomplete="off"
+                        <input type="text" class="form-control" placeholder="Cari.." autocomplete="off"
                             id="search-options" value="">
                         <span class="mdi mdi-magnify search-widget-icon"></span>
                         <span class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none"
@@ -60,7 +60,7 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
                         <!-- item-->
-                        <h6 class="dropdown-header">Welcome <?php echo e(Auth::user()->email); ?>!</h6>
+                        <h6 class="dropdown-header">Selamat Datang <?php echo e(Auth::user()->email); ?>!</h6>
                         <a class="dropdown-item" href="<?php echo e(route('profile.index')); ?>"><i
                                 class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
                                 class="align-middle">Profile</span></a>

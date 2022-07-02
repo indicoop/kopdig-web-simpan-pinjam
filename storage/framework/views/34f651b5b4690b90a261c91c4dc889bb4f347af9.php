@@ -5,7 +5,7 @@
         <!-- Dark Logo-->
         <a href="index" class="logo logo-dark">
             <span class="logo-sm">
-                <img src="<?php echo e(URL::asset('assets/images/logo-sm.png')); ?>" alt="" height="22">
+                <img src="https://marketplace.kopdig.id/assets/img/logo-utama.png" alt="" height="22">
             </span>
             <span class="logo-lg">
                 <img src="<?php echo e(URL::asset('assets/images/logo-header.png')); ?>" alt="" height="35">
@@ -14,7 +14,7 @@
         <!-- Light Logo-->
         <a href="index" class="logo logo-light">
             <span class="logo-sm">
-                <img src="<?php echo e(URL::asset('assets/images/logo-sm.png')); ?>" alt="" height="22">
+                <img src="" alt="" height="22">
             </span>
             <span class="logo-lg">
                 <img src="<?php echo e(URL::asset('assets/images/logo-light.png')); ?>" alt="" height="17">
@@ -55,8 +55,11 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="<?php echo e(route('tenor.index')); ?>" class="nav-link" role="button"
-                                    aria-expanded="false" aria-controls="sidebarSignUp" >Pengecekan Tenor
+                                <a href="" class="nav-link"  >List Simpanan
+                                </a>
+                            </li>
+                             <li class="nav-item">
+                                <a href="<?php echo e(route('simpan-pinjam.pinjaman.index')); ?>" class="nav-link"  >List Pinjaman
                                 </a>
                             </li>
                         </ul>

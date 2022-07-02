@@ -35,14 +35,10 @@ Route::group(['middleware' => 'auth'], function(){
         });
     });
 
-
-    //Tenor pengecekan
-    Route::get('/cek-tenor-pinjaman', [TenorController::class, 'index'])->name('tenor.index');
-
     // Profile
      Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
      Route::get('/edit-profile', [ProfileController::class, 'edit'])->name('profile.edit');
-     
+
 
 });
 

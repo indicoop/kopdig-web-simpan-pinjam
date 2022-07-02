@@ -1,15 +1,13 @@
-@extends('layouts.simpanpinjam.app', ['title' => 'Form Pinjaman'])
-
-@push('style')
+<?php $__env->startPush('style'); ?>
 <link
 href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css"
 rel="stylesheet"
 />
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-@endpush
+<?php $__env->stopPush(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -21,9 +19,9 @@ rel="stylesheet"
                             <label class="form-label">Nama Lengkap</label>
                             <select name="" class="form-control" id="select-choices-loans">
                                 <option value="" selected disabled>Cari nama peminjam</option>
-                                @foreach ($users as $user)
-                                    <option value="{{$user->id}}">{{$user->name}}</option>
-                                @endforeach
+                                <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($user->id); ?>"><?php echo e($user->name); ?></option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>
                         </div>
                         <div class="mb-3">
@@ -49,9 +47,9 @@ rel="stylesheet"
                             <label class="form-label"> Nama Koperasi</label>
                             <select name="" class="form-control" id="select-choices-cooperatives">
                                 <option value="" selected disabled>Cari nama Koperasi</option>
-                                @foreach ($cooperatives as $cooperative)
-                                    <option value="{{$cooperative->id}}">{{$cooperative->name}}</option>
-                                @endforeach
+                                <?php $__currentLoopData = $cooperatives; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cooperative): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($cooperative->id); ?>"><?php echo e($cooperative->name); ?></option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>
                         </div>
                         <div class="mb-3">
@@ -81,9 +79,9 @@ rel="stylesheet"
                             <label for="basiInput" class="form-label">Bulan: </label>
                             <select name="" id="selectedMonth" class="form-control">
                                 <option value="" selected disabled>Pilih Bulan</option>
-                                @for ($i = 1; $i <= 12; $i++)
-                                    <option value="{{$i}}">{{ $i }}</option>
-                                @endfor
+                                <?php for($i = 1; $i <= 12; $i++): ?>
+                                    <option value="<?php echo e($i); ?>"><?php echo e($i); ?></option>
+                                <?php endfor; ?>
                             </select>
 
                         </div>
@@ -135,9 +133,9 @@ rel="stylesheet"
     </div>
     <!-- end col -->
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@push('scripts')
+<?php $__env->startPush('scripts'); ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
@@ -187,4 +185,6 @@ rel="stylesheet"
 
         });
     </script>
-@endpush
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('layouts.simpanpinjam.app', ['title' => 'Form Pinjaman'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/destroylord/htdocs/kopdig-web-simpan-pinjam/resources/views/pages/simpan-pinjam/pinjaman/create.blade.php ENDPATH**/ ?>
