@@ -15,15 +15,12 @@ return new class extends Migration
     {
         Schema::create('installments', function (Blueprint $table) {
             $table->id();
-            $table->integer('loan_id');
-            $table->string('installment_type');
-            $table->integer('installment_number');
-            $table->date('pay_date');
-            $table->date('lateness_date')->nullable();
-            $table->float('total_installment');
-            $table->float('interest');
-            $table->float('fine');
-            $table->float('total_pay');
+            $table->foreignId('loan_id')->constrained();
+            $table->date('pay_date'); // tanggal bayar
+            $table->integer('installment_amount'); // jumlah angsuran
+            $table->integer('installment_to'); //angsuran ke -
+            $table->integer('total_installment')->comment('total angsuran'); // total angsuran dibayar
+            $table->integer('remaining_installments'); // sisa angsuran pinjaman
             $table->timestamps();
         });
     }

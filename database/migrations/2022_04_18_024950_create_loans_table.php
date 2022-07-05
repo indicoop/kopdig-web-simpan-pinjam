@@ -15,14 +15,18 @@ return new class extends Migration
     {
         Schema::create('loans', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->date('loan_date');
-            $table->integer('amount');
-            $table->integer('installment_principal');
-            $table->integer('installment_interest');
-            $table->integer('total_installment');
-            $table->integer('installment_remaining');
-            $table->integer('loan_type_id');
+            $table->foreignId('user_id')->constrained(); // user
+            $table->string('installment_code', 6)->unique();
+            $table->foreignId('cooperative_id')->constrained(); // coperative
+            $table->string('position')->nullable(); //jabatan
+            $table->bigInteger('nik', 16);
+            $table->string('type_of_work'); // jenis pekerjaan
+            $table->bigInteger('big_loan'); // besar pinjaman
+            $table->bigInteger('monthly_income'); // penghasilan perbulan
+            $table->bigInteger('interest_per_year'); // bunga per tahun
+            $table->bigInteger('interest_per_month'); // bunga per bulan
+            $table->integer('time_period'); // jangka waktu peminjaman
+            $table->integer('installment'); // cicilan
             $table->timestamps();
         });
     }
