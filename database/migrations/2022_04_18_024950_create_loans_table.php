@@ -15,11 +15,20 @@ return new class extends Migration
     {
         Schema::create('loans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained(); // user
+            // $table->foreignId('user_id')->constrained('users'); // user
+            // $table->foreignId('cooperative_id')->constrained('cooperatives'); // coperative
+            $table->foreignId('user_id')
+                                ->constrained('users','id')
+                                ->onUpdate('cascade')
+                                ->onDelete('cascade');;
+            $table->foreignId('cooperative_id')
+                                ->constrained('cooperatives', 'id')
+                                ->onUpdate('cascade')
+                                ->onDelete('cascade');;
+
             $table->string('installment_code', 6)->unique();
-            $table->foreignId('cooperative_id')->constrained(); // coperative
             $table->string('position')->nullable(); //jabatan
-            $table->bigInteger('nik', 16);
+            $table->string('nik', 16);
             $table->string('type_of_work'); // jenis pekerjaan
             $table->bigInteger('big_loan'); // besar pinjaman
             $table->bigInteger('monthly_income'); // penghasilan perbulan
