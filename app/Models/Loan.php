@@ -11,13 +11,17 @@ class Loan extends Model
 
     protected $fillable = [
         'user_id',
-        'loan_date',
-        'amount',
-        'installment_principal',
-        'installment_interest',
-        'total_installment',
-        'installment_remaining',
-        'loan_type_id',
+        'cooperative_id',
+        'installment_code',
+        'position',
+        'nik',
+        'type_of_work',
+        'big_loan',
+        'monthly_income',
+        'interest_per_year',
+        'interest_per_month',
+        'time_period',
+        'installment',
     ];
 
     // RELATIONSHIPS

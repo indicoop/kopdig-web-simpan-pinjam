@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\{UserController, PinjamanController};
 use Illuminate\Support\Facades\Route;
 
 
@@ -8,4 +8,9 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('/user/{id}', [UserController::class, 'index']);
+Route::name('api.')->group(function(){
+
+    Route::get('/user/{id}', [UserController::class, 'index'])->name('user');
+    Route::get('/pinjaman', [PinjamanController::class, 'index'])->name('pinjaman');
+
+});

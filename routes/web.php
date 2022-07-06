@@ -32,6 +32,7 @@ Route::group(['middleware' => 'auth'], function(){
         Route::name('pinjaman.')->group(function(){
             Route::get('/pinjaman', 'pinjaman')->name('index');
             Route::get('/pinjaman/create', 'pinjamanCreate')->name('create');
+            Route::post('/pinjaman/store', 'PinjamanStore')->name('store');
         });
     });
 

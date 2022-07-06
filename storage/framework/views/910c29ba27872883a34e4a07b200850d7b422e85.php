@@ -31,18 +31,15 @@ rel="stylesheet"
     <script>
     new gridjs.Grid({
         search: true,
-        columns: [
-            'Nama Koperasi', 'Direktur', 'Rate', 'Nomor Registrasi', 'Email', 'Phone',
-            {
-                name: 'Actions',
-                formatter:function(e){return gridjs.html("<a href='#' class='text-reset text-decoration-underline'>Show</a>")}
-            },
-
-    ],
+        columns: ['Nama Peminjam', 'Nama Koperasi', 'Nominal Pinjaman', 'Jangka Waktu Pinjaman'],
         server: {
-            url: 'https://swapi.dev/api/films/',
-            then: data => data.results.map(movie => [movie.title, movie.director, movie.producer, null],
-            )
+            url: 'http://127.0.0.1:8000/api/pinjaman',
+            then: data => data.results.map(loan => [
+                loan.user.name,
+                loan.cooperative_id,
+                loan.big_loan,
+                loan.time_period
+            ])
         }
       }).render(document.getElementById("table-gridjs"));
     </script>

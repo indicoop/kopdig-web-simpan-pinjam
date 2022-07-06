@@ -30,7 +30,9 @@ class UserSeeder extends Seeder
         ];
 
 
-        User::create($users);
-
+        for ($users=1; $users <= 5; $users++) {
+            User::create($users);
+        }
     }
+
 }

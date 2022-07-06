@@ -11,14 +11,11 @@ class Installment extends Model
 
     protected $fillable = [
         'loan_id',
-        'installment_type',
-        'installment_number',
         'pay_date',
-        'lateness_date',
+        'installment_amount',
+        'installment_to',
         'total_installment',
-        'interest',
-        'fine',
-        'total_pay',
+        'remaining_installments',
     ];
 
     // RELATIONSHIPS
