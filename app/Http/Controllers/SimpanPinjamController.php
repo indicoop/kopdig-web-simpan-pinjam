@@ -51,4 +51,10 @@ class SimpanPinjamController extends Controller
 
     }
 
+    public function PinjamanShow($id)
+    {
+        $getLoanById = Loan::findOrFail($id);
+        return view('pages.simpan-pinjam.pinjaman.show', compact('getLoanById'));
+    }
+
 }

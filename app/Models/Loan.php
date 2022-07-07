@@ -17,6 +17,7 @@ class Loan extends Model
         'nik',
         'type_of_work',
         'big_loan',
+        'installment_principal',
         'monthly_income',
         'interest_per_year',
         'interest_per_month',

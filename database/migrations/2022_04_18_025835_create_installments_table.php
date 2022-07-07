@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('loan_id')->constrained('loans', 'id');
             $table->date('pay_date'); // tanggal bayar
-            $table->integer('installment_amount'); // jumlah angsuran
             $table->integer('installment_to'); //angsuran ke -
+            $table->integer('installment_amount'); // jumlah angsuran
             $table->integer('total_installment')->comment('total angsuran'); // total angsuran dibayar
             $table->integer('remaining_installments'); // sisa angsuran pinjaman
             $table->timestamps();

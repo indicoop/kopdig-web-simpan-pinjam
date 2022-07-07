@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Loan;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class PinjamanController extends Controller
@@ -13,7 +14,7 @@ class PinjamanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): JsonResponse
     {
         $loans = Loan::with('user')->get();
 

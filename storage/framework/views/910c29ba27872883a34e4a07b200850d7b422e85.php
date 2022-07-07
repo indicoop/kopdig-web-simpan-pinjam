@@ -26,19 +26,26 @@ rel="stylesheet"
 <?php $__env->startPush('scripts'); ?>
     <!-- gridjs js -->
     <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
-
     <!-- gridjs init -->
     <script>
+
     new gridjs.Grid({
         search: true,
-        columns: ['Nama Peminjam', 'Nama Koperasi', 'Nominal Pinjaman', 'Jangka Waktu Pinjaman'],
+        sort: true,
+        columns: ['Nama Peminjam', 'Nama Koperasi', 'Nominal Pinjaman', 'Jangka Waktu Pinjaman', {
+            name:'Action',
+            formatter: (cell) => {
+            return gridjs.html(`<a href="/simpan-pinjam/pinjaman/show/${cell}" class="btn btn-warning btn-sm">Show</a>`)
+        }
+        }],
         server: {
             url: 'http://127.0.0.1:8000/api/pinjaman',
             then: data => data.results.map(loan => [
                 loan.user.name,
                 loan.cooperative_id,
                 loan.big_loan,
-                loan.time_period
+                loan.time_period + ' bulan',
+                loan.id
             ])
         }
       }).render(document.getElementById("table-gridjs"));

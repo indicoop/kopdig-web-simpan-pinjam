@@ -235,7 +235,7 @@ unset($__errorArgs, $__bag); ?>
                         <div class="col-lg-3">
                             <div class="mb-3">
                                 <label for="">Total Nominal</label>
-                                <input type="text" name="" id="totalNominal" class="form-control" readonly>
+                                <input type="text" name="installment_principal" id="totalNominal" class="form-control" readonly>
                             </div>
                         </div>
                         <div class="col-lg-3">
