@@ -32,6 +32,7 @@
                             </div>
                         </div>
                     </div>
+                    <?php echo $__env->make('sweetalert::alert', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                     <?php echo $__env->yieldContent('content'); ?>
                 </div>
                 <!-- container-fluid -->
@@ -40,6 +41,7 @@
             <?php echo $__env->make('layouts.components.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         </div>
         <!-- end main content-->
+
     </div>
     <!-- END layout-wrapper -->
 

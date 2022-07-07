@@ -7,6 +7,7 @@ use App\Models\Cooperative;
 use App\Models\Loan;
 use Illuminate\Http\Request;
 use App\Models\User;
+Use Alert;
 
 class SimpanPinjamController extends Controller
 {
@@ -45,6 +46,7 @@ class SimpanPinjamController extends Controller
         $attr['installment_code'] = bin2hex(random_bytes(3));
 
         Loan::create($attr);
+        Alert::success('Berhasil', 'Data berhasil ditambahkan');
 
         return redirect()
                     ->route('simpan-pinjam.pinjaman.index');
