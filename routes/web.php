@@ -34,6 +34,7 @@ Route::group(['middleware' => 'auth'], function(){
             Route::get('/pinjaman/create', 'pinjamanCreate')->name('create');
             Route::post('/pinjaman/store', 'PinjamanStore')->name('store');
             Route::get('/pinjaman/show/{id}', 'PinjamanShow')->name('show');
+            Route::post('/angsuran', 'Angsuran')->name('loan.store');
         });
     });
 
@@ -43,9 +44,5 @@ Route::group(['middleware' => 'auth'], function(){
 
 
 });
-
-// Route::get('/dashboard', function () {
-
-// })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

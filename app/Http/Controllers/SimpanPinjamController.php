@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoanRequest;
-use App\Models\Cooperative;
-use App\Models\Loan;
+use App\Models\{Cooperative, Installment, User, Loan};
 use Illuminate\Http\Request;
-use App\Models\User;
 
 class SimpanPinjamController extends Controller
 {
+
+    private $loan;
+
+    public function __construct(Loan $loan)
+    {
+        $this->loan = $loan;
+    }
 
     public function index()
     {
@@ -44,7 +49,19 @@ class SimpanPinjamController extends Controller
         $attr = $request->all();
         $attr['installment_code'] = bin2hex(random_bytes(3));
 
-        Loan::create($attr);
+        $loan = Loan::create($attr);
+        $loanId = $loan->id;
+
+        $installment  = [
+            'loan_id' => $loanId,
+            'pay_date' => now(),
+            'installment_amount' => $request->big_loan,
+            'installment_to' => 0,
+            'total_installment' => $request->big_loan,
+            'remaining_installments' => $request->big_loan
+        ];
+
+        Installment::create($installment);
 
         return redirect()
                     ->route('simpan-pinjam.pinjaman.index');
@@ -54,7 +71,17 @@ class SimpanPinjamController extends Controller
     public function PinjamanShow($id)
     {
         $getLoanById = Loan::findOrFail($id);
-        return view('pages.simpan-pinjam.pinjaman.show', compact('getLoanById'));
+        $getAllInstallmentById = Installment::all();
+        return view('pages.simpan-pinjam.pinjaman.show', compact('getLoanById', 'getAllInstallmentById'));
+    }
+
+    public function Angsuran(Request $request)
+    {
+        $attr = $request->all();
+
+        Installment::create($attr);
+
+        return back();
     }
 
 }

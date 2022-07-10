@@ -3,7 +3,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header d-flex justify-content-between">
-                <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
+                <button type="button" class="btn btn-success btn-sm" <?php echo e((count($getAllInstallmentById) > $getLoanById->time_period) ? 'disabled' : ''); ?> data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
                     Ajukan Pembayaran
                 </button>
                 <?php echo $__env->make('pages.simpan-pinjam.pinjaman.common.modal', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -46,7 +46,23 @@
                             </tr>
                         </thead>
                         <tbody>
-
+                            <?php $__currentLoopData = $getAllInstallmentById; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <tr>
+                                <?php if($item->installment_to == 0): ?>
+                                <td>0</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td> <div id="installment_start"> <?php echo e($item->remaining_installments); ?> </div></td>
+                                <?php else: ?>
+                                <td><?php echo e($loop->index); ?></td>
+                                <td><?php echo e($getLoanById->installment_principal); ?></td>
+                                <td><?php echo e($item->installment_amount); ?></td>
+                                <td><?php echo e($item->total_installment); ?></td>
+                                <td class="remainingInstallment"><?php echo e($item->remaining_installments); ?></td>
+                                <?php endif; ?>
+                            </tr>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
 
                         
@@ -62,11 +78,33 @@
     <!-- end col -->
 </div>
 <?php $__env->stopSection(); ?>
-
 <?php $__env->startPush('scripts'); ?>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <script>
         $(function(){
-            var
+
+            // Rumus Bunga
+            let installmentPrincipal = $('#installmentPrincipal').val();
+            let remainingInstallments = $('.remainingInstallment:last').text();
+            // let remainingInstallments = $('#remainingInstallmentStart').val();
+            const isLastPay = <?php echo e($getLoanById->time_period - count($getAllInstallmentById)); ?>
+
+            console.log(isLastPay);
+            let interestInstallment = (remainingInstallments * 10 / 100) / $('#installment_to').val()
+            $('#interesetPerMonth').val(interestInstallment)
+
+            // Rumus besar angsuran
+            let bigInstallment = parseInt(installmentPrincipal) + parseInt(interestInstallment)
+            $('#totalInstallment').val(bigInstallment)
+
+            // Sisa angsuran
+            let totalRemainingInstallment = parseInt(remainingInstallments) - parseInt(bigInstallment)
+            if (isLastPay == 0) totalRemainingInstallment = 0
+
+            $('#remainingInstallment').val(totalRemainingInstallment)
+            $('#remainingInstallmentStart').val(remainingInstallments)
+
         })
     </script>
 <?php $__env->stopPush(); ?>

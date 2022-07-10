@@ -5,7 +5,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header d-flex justify-content-between">
-                <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
+                <button type="button" class="btn btn-success btn-sm" {{ (count($getAllInstallmentById) > $getLoanById->time_period) ? 'disabled' : ''}} data-bs-toggle="modal" data-bs-target="#exampleModalgrid">
                     Ajukan Pembayaran
                 </button>
                 @include('pages.simpan-pinjam.pinjaman.common.modal')
@@ -48,7 +48,23 @@
                             </tr>
                         </thead>
                         <tbody>
-
+                            @foreach ($getAllInstallmentById as $item)
+                            <tr>
+                                @if ($item->installment_to == 0)
+                                <td>0</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td> <div id="installment_start"> {{ $item->remaining_installments}} </div></td>
+                                @else
+                                <td>{{ $loop->index}}</td>
+                                <td>{{ $getLoanById->installment_principal}}</td>
+                                <td>{{ $item->installment_amount}}</td>
+                                <td>{{ $item->total_installment}}</td>
+                                <td class="remainingInstallment">{{ $item->remaining_installments}}</td>
+                                @endif
+                            </tr>
+                            @endforeach
                         </tbody>
 
                         {{-- <tfoot class="table-light">
@@ -69,3 +85,32 @@
     <!-- end col -->
 </div>
 @endsection
+@push('scripts')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        $(function(){
+
+            // Rumus Bunga
+            let installmentPrincipal = $('#installmentPrincipal').val();
+            let remainingInstallments = $('.remainingInstallment:last').text();
+
+            const isLastPay = {{ $getLoanById->time_period - count($getAllInstallmentById) }}
+
+            let interestInstallment = (remainingInstallments * 10 / 100) / $('#installment_to').val()
+            $('#interesetPerMonth').val(interestInstallment)
+
+            // Rumus besar angsuran
+            let bigInstallment = parseInt(installmentPrincipal) + parseInt(interestInstallment)
+            $('#totalInstallment').val(bigInstallment)
+
+            // Sisa angsuran
+            let totalRemainingInstallment = parseInt(remainingInstallments) - parseInt(bigInstallment)
+            if (isLastPay == 0) totalRemainingInstallment = 0
+
+            $('#remainingInstallment').val(totalRemainingInstallment)
+            $('#remainingInstallmentStart').val(remainingInstallments)
+
+        })
+    </script>
+@endpush
