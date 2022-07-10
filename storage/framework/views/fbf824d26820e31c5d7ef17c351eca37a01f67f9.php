@@ -28,23 +28,27 @@ rel="stylesheet"
 <?php $__env->startPush('scripts'); ?>
     <!-- gridjs js -->
     <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
-
     <!-- gridjs init -->
     <script>
+
     new gridjs.Grid({
         search: true,
-        columns: [
-            'Nama Koperasi', 'Direktur', 'Rate', 'Nomor Registrasi', 'Email', 'Phone',
-            {
-                name: 'Actions',
-                formatter:function(e){return gridjs.html("<a href='#' class='text-reset text-decoration-underline'>Show</a>")}
-            },
-
-    ],
+        sort: true,
+        columns: ['Nama Peminjam', 'Nama Koperasi', 'Nominal Pinjaman', 'Jangka Waktu Pinjaman', {
+            name:'Action',
+            formatter: (cell) => {
+            return gridjs.html(`<a href="/simpan-pinjam/pinjaman/show/${cell}" class="btn btn-warning btn-sm">Show</a>`)
+        }
+        }],
         server: {
-            url: 'https://swapi.dev/api/films/',
-            then: data => data.results.map(movie => [movie.title, movie.director, movie.producer, null],
-            )
+            url: 'http://127.0.0.1:8000/api/pinjaman',
+            then: data => data.results.map(loan => [
+                loan.user.name,
+                loan.cooperative_id,
+                loan.big_loan,
+                loan.time_period + ' bulan',
+                loan.id
+            ])
         }
       }).render(document.getElementById("table-gridjs"));
     </script>

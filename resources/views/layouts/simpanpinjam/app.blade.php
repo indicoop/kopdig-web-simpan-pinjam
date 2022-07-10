@@ -32,6 +32,7 @@
                             </div>
                         </div>
                     </div>
+                    @include('sweetalert::alert')
                     @yield('content')
                 </div>
                 <!-- container-fluid -->
@@ -40,6 +41,7 @@
             @include('layouts.components.footer')
         </div>
         <!-- end main content-->
+
     </div>
     <!-- END layout-wrapper -->
 

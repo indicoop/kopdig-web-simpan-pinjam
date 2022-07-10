@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LoanRequest;
 use App\Models\{Cooperative, Installment, User, Loan};
 use Illuminate\Http\Request;
+Use Alert;
 
 class SimpanPinjamController extends Controller
 {
@@ -62,6 +63,8 @@ class SimpanPinjamController extends Controller
         ];
 
         Installment::create($installment);
+
+        Alert::success('Berhasil', 'Data berhasil ditambahkan');
 
         return redirect()
                     ->route('simpan-pinjam.pinjaman.index');
