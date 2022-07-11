@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Stash extends Model
 {
@@ -13,18 +14,25 @@ class Stash extends Model
 
     protected $fillable = [
         'user_id',
-        'beginning_balance',
-        'ending_balance',
-        'stash_date',
-        'stash_amount',
+        'cooperative_id',
+        'beginning_balance'
     ];
 
     // RELATIONSHIPS
 
     // belongsTo - one to one relationship with User
 
-    public function user()
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+
+        return $this->belongsTo(User::class, 'user_id');
+
+    }
+
+    public function cooperative(): BelongsTo
+    {
+
+        return $this->belongsTo(Cooperative::class, 'cooperative_id');
+
     }
 }

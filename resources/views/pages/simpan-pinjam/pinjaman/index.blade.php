@@ -41,10 +41,10 @@ rel="stylesheet"
         }
         }],
         server: {
-            url: 'http://127.0.0.1:8000/api/pinjaman',
+            url: '{{url('api/pinjaman')}}',
             then: data => data.results.map(loan => [
                 loan.user.name,
-                loan.cooperative_id,
+                loan.cooperative.name,
                 loan.big_loan,
                 loan.time_period + ' bulan',
                 loan.id

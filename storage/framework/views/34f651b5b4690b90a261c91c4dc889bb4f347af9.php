@@ -55,7 +55,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link"  >List Simpanan
+                                <a href="<?php echo e(route('simpan-pinjam.simpanan.index')); ?>" class="nav-link"  >List Simpanan
                                 </a>
                             </li>
                              <li class="nav-item">

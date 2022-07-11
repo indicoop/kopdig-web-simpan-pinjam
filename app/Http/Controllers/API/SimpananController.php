@@ -3,20 +3,15 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\Loan;
+use App\Models\Stash;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
-class PinjamanController extends Controller
+class SimpananController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index(): JsonResponse
     {
-        $loans = Loan::with('user', 'cooperative')->get();
+        $loans = Stash::with('user','cooperative')->get();
 
         return response()
                     ->json([

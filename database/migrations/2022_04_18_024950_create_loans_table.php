@@ -24,7 +24,7 @@ return new class extends Migration
             $table->foreignId('cooperative_id')
                                 ->constrained('cooperatives', 'id')
                                 ->onUpdate('cascade')
-                                ->onDelete('cascade');;
+                                ->onDelete('cascade');
 
             $table->string('installment_code', 6)->unique();
             $table->string('position')->nullable(); //jabatan

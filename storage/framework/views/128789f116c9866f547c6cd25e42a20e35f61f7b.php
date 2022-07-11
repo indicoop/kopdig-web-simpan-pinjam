@@ -87,10 +87,10 @@
             // Rumus Bunga
             let installmentPrincipal = $('#installmentPrincipal').val();
             let remainingInstallments = $('.remainingInstallment:last').text();
-            // let remainingInstallments = $('#remainingInstallmentStart').val();
+
             const isLastPay = <?php echo e($getLoanById->time_period - count($getAllInstallmentById)); ?>
 
-            console.log(isLastPay);
+
             let interestInstallment = (remainingInstallments * 10 / 100) / $('#installment_to').val()
             $('#interesetPerMonth').val(interestInstallment)
 

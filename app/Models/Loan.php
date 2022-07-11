@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Loan extends Model
 {
@@ -28,14 +29,14 @@ class Loan extends Model
     // RELATIONSHIPS
 
     // belongsTo - one to one relationship with User
-    public function user()
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     // belongsTo - one to one relationship with LoanType
-    public function loanType()
+    public function cooperative(): BelongsTo
     {
-        return $this->belongsTo(LoanType::class, 'loan_type_id');
+        return $this->belongsTo(Cooperative::class, 'cooperative_id');
     }
 }

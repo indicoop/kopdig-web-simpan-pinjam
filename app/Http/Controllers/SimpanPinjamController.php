@@ -3,19 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoanRequest;
-use App\Models\{Cooperative, Installment, User, Loan};
+use App\Models\{Cooperative, Installment, User, Loan, Stash};
 use Illuminate\Http\Request;
 Use Alert;
 
 class SimpanPinjamController extends Controller
 {
-
-    private $loan;
-
-    public function __construct(Loan $loan)
-    {
-        $this->loan = $loan;
-    }
 
     public function index()
     {
@@ -74,7 +67,7 @@ class SimpanPinjamController extends Controller
     public function PinjamanShow($id)
     {
         $getLoanById = Loan::findOrFail($id);
-        $getAllInstallmentById = Installment::all();
+        $getAllInstallmentById = Installment::where('loan_id', $id)->get();
         return view('pages.simpan-pinjam.pinjaman.show', compact('getLoanById', 'getAllInstallmentById'));
     }
 
@@ -85,6 +78,24 @@ class SimpanPinjamController extends Controller
         Installment::create($attr);
 
         return back();
+    }
+
+    public function simpanan()
+    {
+        $users = User::where('role_id', 2)->get();
+        $cooperatives = Cooperative::where('form_of_cooperative', 'Koperasi Simpan Pinjam')->get();
+        return view('pages.simpan-pinjam.simpanan.index', compact('users','cooperatives'));
+    }
+
+    public function simpananStore(Request $request)
+    {
+
+        $attr = $request->all();
+        Stash::create($attr);
+
+        Alert::success('Berhasil', 'Data berhasil ditambahkan');
+        return back();
+
     }
 
 }

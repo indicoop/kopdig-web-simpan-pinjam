@@ -15,11 +15,15 @@ return new class extends Migration
     {
         Schema::create('stashs', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->float('beginning_balance');
-            $table->float('ending_balance');
-            $table->date('stash_date');
-            $table->float('stash_amount');
+            $table->foreignId('user_id')
+                        ->constrained('users','id')
+                        ->onUpdate('cascade')
+                        ->onDelete('cascade');
+            $table->foreignId('cooperative_id')
+                        ->constrained('cooperatives', 'id')
+                        ->onUpdate('cascade')
+                        ->onDelete('cascade');
+            $table->string('beginning_balance');
             $table->timestamps();
         });
     }
